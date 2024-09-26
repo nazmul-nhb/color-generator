@@ -1,0 +1,42 @@
+{
+	"name": "color-generator",
+	"version": "0.9.1",
+	"description": "Generate Hex Color Based on First Letter of Any String",
+	"main": "dist/index.js",
+	"types": "dist/index.d.ts",
+	"scripts": {
+		"build": "rimraf dist && tsc",
+		"prepublishOnly": "npm run build"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/nazmul-nhb/color-generator.git"
+	},
+	"keywords": [
+		"color",
+		"generator",
+		"color-generator",
+		"npm"
+	],
+	"dependencies": {
+		"tslib": "^2.7.0"
+	},
+	"devDependencies": {
+		"@types/node": "^22.7.2",
+		"@typescript-eslint/eslint-plugin": "^8.7.0",
+		"@typescript-eslint/parser": "^8.7.0",
+		"eslint": "^9.11.1",
+		"eslint-config-prettier": "^9.1.0",
+		"prettier": "^3.3.3",
+		"rimraf": "^6.0.1",
+		"typescript": "^5.6.2"
+	},
+	"files": [
+		"dist"
+	],
+	"author": "Nazmul Hassan",
+	"license": "ISC"
+}
