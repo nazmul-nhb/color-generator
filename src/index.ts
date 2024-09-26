@@ -1,6 +1,22 @@
 import { colorPalette } from './constants';
 
+/**
+ *
+ * @param string
+ * @returns A hex color
+ */
 export const getColorForFirstLetter = (string: string) => {
+	if (typeof string !== 'string') {
+		try {
+			throw new Error('🛑 Invalid Input!');
+		} catch (error) {
+			if (error instanceof Error) {
+				return error.message;
+			}
+			return '🛑 Invalid Input!';
+		}
+	}
+
 	const initial = string[0];
 
 	// Convert initial to uppercase
@@ -11,12 +27,17 @@ export const getColorForFirstLetter = (string: string) => {
 
 	// Check if index is valid
 	if (index < 0 || index >= colorPalette.length) {
-		console.warn('🛑 Invalid Character at Index: ', index);
-		return null; // or return a default color
+		try {
+			throw new Error('🛑 Invalid Character!');
+		} catch (error) {
+			if (error instanceof Error) {
+				return error.message;
+			}
+			return '🛑 Invalid Character!';
+		}
 	}
 
-    console.log({ initial, upperInitial, index });
-    
+	console.log({ initial, upperInitial, index });
+
 	return colorPalette[index];
 };
-

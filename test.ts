@@ -1,11 +1,11 @@
 import { getColorForFirstLetter } from './dist';
 
-const color = getColorForFirstLetter('humayun');
+const color = getColorForFirstLetter("0");
 
 console.log(color);
 
-const letters = 'abcdefghijklmnopqrstuvwxyz';
+// const letters = 'abcdefghijklmnopqrstuvwxyz';
 
-for (const letter of letters) {
-	console.log(getColorForFirstLetter(letter));
-}
+// for (const letter of letters) {
+// 	console.log(getColorForFirstLetter(letter));
+// }
