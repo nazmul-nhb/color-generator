@@ -6,23 +6,13 @@ import { alphabetColorPalette, numberColorPalette } from './constants';
 type Argument = string | number | (string | number)[];
 
 /**
- * - A hex color for a string/number.
- */
-type Color = string;
-
-/**
- * - An array of hex colors for each element of the provided array.
- */
-type Colors = string[];
-
-/**
  * Returns a hex color or an array of hex colors based on the first character of a string, number, or an array of strings/numbers.
  * - For numbers, it uses 10 predefined colors (0-9).
  * - For letters, it uses 26 predefined colors (A-Z).
  * - Invalid characters and inputs are handled with a warning.
  *
- * @param {string | number | (string | number)[]} arg - Receives a string, number, or an array of strings/numbers as argument.
- * @returns {Color | Colors} A hex color for a string/number, or an array of hex colors for each element of the provided array.
+ * @param {string | number | (string | number)[]} arg - A string, number, or an array of strings/numbers.
+ * @returns {string | string[]} A hex color for a string/number, or an array of hex colors for each element of the provided array.
  *
  * @example
  * // Using with String
@@ -60,7 +50,7 @@ type Colors = string[];
  * const color = getColorForFirstCharacter({name: 'John Doe'}); // '🛑 Invalid Input!'
  * console.log(color);
  */
-export const getColorForFirstCharacter = (arg: Argument): Color | Colors => {
+export const getColorForFirstCharacter = (arg: Argument): string | string[] => {
 	let initial: string;
 
 	// Handle string input
