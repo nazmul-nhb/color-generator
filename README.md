@@ -46,7 +46,7 @@ console.log(color);
 ```ts
 import { getColorForFirstLetter } from 'color-generator-fl';
 
-const color = getColorForFirstLetter(123); // '#E3C65D' (Golden rod)
+const color = getColorForFirstLetter(666); // '#FFD700' (Tomato)
 console.log(color);
 ```
 
@@ -56,16 +56,29 @@ console.log(color);
 import { getColorForFirstLetter } from 'color-generator-fl';
 
 const colors = getColorForFirstLetter(['Alice', 123, 'Bob']); 
-// ['#132DEE', '#E3C65D', '#1E90FF'] (Deep blue, Golden rod, Dodger blue)
+// ['#132DEE', '#FFD700', '#1E90FF'] (Deep blue, Gold, Dodger blue)
 console.log(colors);
+```
+
+### Handling Invalid Character
+
+- The function handles invalid characters (not alphabet or numbers or array of numbers/strings):
+
+```ts
+import { getColorForFirstLetter } from 'color-generator-fl';
+
+const color = getColorForFirstLetter('!@#'); // '🛑 Invalid Character!'
+console.log(color);
 ```
 
 ### Handling Invalid Input
 
-- The function handles invalid characters (not alphabet or numbers) and empty input:
+- The function handles invalid input (objects or other types) and empty input:
 
 ```ts
-const color = getColorForFirstLetter('!@#'); // '🛑 Invalid Character!'
+import { getColorForFirstLetter } from 'color-generator-fl';
+
+const color = getColorForFirstLetter({name: 'John Doe'}); // '🛑 Invalid Input!'
 console.log(color);
 ```
 
@@ -106,7 +119,7 @@ const tags = ['Important', 'Urgent', 'Pending'];
 const tagColors = getColorForFirstLetter(tags);
 
 console.log(tagColors);
-// ['#132DEE', '#8A2BE2', '#00CED1'] (Colors for 'Important', 'Urgent', 'Pending')
+// ['#7FFF00', '#00FF00', '#87CEEB'] (Colors for 'Important', 'Urgent', 'Pending')
 ```
 
 This approach ensures that tags can have consistent colors across the app, making the UI more user-friendly and intuitive.
