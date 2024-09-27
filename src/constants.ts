@@ -1,7 +1,7 @@
 // colors based on the ASCII value of the letter
 
 export const alphabetColorPalette = [
-	'#132dee', // A - Deep blue
+	'#132DEE', // A - Deep blue
 	'#1E90FF', // B - Dodger blue
 	'#32CD32', // C - Lime green
 	'#00CED1', // D - Dark turquoise
