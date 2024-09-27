@@ -1,63 +1,68 @@
 import { alphabetColorPalette, numberColorPalette } from './constants';
 
 /**
- * A string, number, or an array of strings/numbers.
+ * - A string, number, or an array of strings/numbers.
  */
 type Argument = string | number | (string | number)[];
 
 /**
- * A hex color for a string/number.
+ * - A hex color for a string/number.
  */
 type Color = string;
 
 /**
- * An array of hex colors for each element of the provided array.
+ * - An array of hex colors for each element of the provided array.
  */
 type Colors = string[];
 
 /**
- * Returns a hex color based on the first character of a string, number, or an array of strings/numbers.
- * For numbers, it will use 9 predefined colors, and for letters, it will use 26 predefined colors.
- * Invalid inputs are handled with a warning.
+ * Returns a hex color or an array of hex colors based on the first character of a string, number, or an array of strings/numbers.
+ * - For numbers, it uses 10 predefined colors (0-9).
+ * - For letters, it uses 26 predefined colors (A-Z).
+ * - Invalid characters and inputs are handled with a warning.
  *
  * @param {string | number | (string | number)[]} arg - Receives a string, number, or an array of strings/numbers as argument.
- * @returns {Color | Colors} A Color | Array of Colors - A hex color for a string/number, or an array of hex colors for each element of the provided array.
+ * @returns {Color | Colors} A hex color for a string/number, or an array of hex colors for each element of the provided array.
  *
  * @example
  * // Using with String
- * import { getColorForFirstLetter } from 'color-generator-fl';
+ * import { getColorForFirstCharacter } from 'color-generator-fl';
  *
- * const color = getColorForFirstLetter('Alice'); // '#132DEE' (Deep blue)
+ * const color = getColorForFirstCharacter('Alice'); // '#132DEE' (Deep blue)
  * console.log(color);
  * ---------------------------------
+ * @example
  * // Using with Number
- * import { getColorForFirstLetter } from 'color-generator-fl';
+ * import { getColorForFirstCharacter } from 'color-generator-fl';
  *
- * const color = getColorForFirstLetter(666); // '#FFD700' (Tomato)
+ * const color = getColorForFirstCharacter(666); // '#FFD700' (Gold)
  * console.log(color);
  * ---------------------------------
+ * @example
  * // Using with Array
- * import { getColorForFirstLetter } from 'color-generator-fl';
+ * import { getColorForFirstCharacter } from 'color-generator-fl';
  *
- * const colors = getColorForFirstLetter(['Alice', 123, 'Bob']);
+ * const colors = getColorForFirstCharacter(['Alice', 123, 'Bob']);
  * // ['#132DEE', '#FFD700', '#1E90FF'] (Deep blue, Gold, Dodger blue)
  * console.log(colors);
  * ---------------------------------
+ * @example
  * // Handling Invalid Input
  * // - The function handles invalid characters (not alphabet or numbers or array of numbers/strings)
- * import { getColorForFirstLetter } from 'color-generator-fl';
+ * import { getColorForFirstCharacter } from 'color-generator-fl';
  *
- * const color = getColorForFirstLetter('!@#'); // '🛑 Invalid Character!'
+ * const color = getColorForFirstCharacter('!@#'); // '🛑 Invalid Character!'
  * console.log(color);
  * ---------------------------------
+ * @example
  * // Handling Invalid Input
  * // - The function handles invalid input (objects or other types) and empty input:
- * import { getColorForFirstLetter } from 'color-generator-fl';
+ * import { getColorForFirstCharacter } from 'color-generator-fl';
  *
- * const color = getColorForFirstLetter({name: 'John Doe'}); // '🛑 Invalid Input!'
+ * const color = getColorForFirstCharacter({name: 'John Doe'}); // '🛑 Invalid Input!'
  * console.log(color);
  */
-export const getColorForFirstLetter = (arg: Argument): Color | Colors => {
+export const getColorForFirstCharacter = (arg: Argument): Color | Colors => {
 	let initial: string;
 
 	// Handle string input
@@ -89,7 +94,7 @@ export const getColorForFirstLetter = (arg: Argument): Color | Colors => {
 	} else if (Array.isArray(arg)) {
 		// Handle array of strings/numbers
 		return arg.flatMap((el) => {
-			const color = getColorForFirstLetter(el);
+			const color = getColorForFirstCharacter(el);
 			return Array.isArray(color) ? color : [color]; // Flatten if nested arrays
 		});
 	}

@@ -1,6 +1,6 @@
 # Color Generator
 
-**Color Generator** is a simple utility to generate hex color codes based on the first letter of string or number. It provides easy-to-use function that takes string, number, or array of numbers of strings/numbers as input and returns the corresponding hex color(s).
+**Color Generator** is a simple utility to generate hex color codes based on the first character of string or number. It provides easy-to-use function that takes string, number, or array of numbers of strings/numbers as input and returns the corresponding hex color(s).
 
 ## Installation
 
@@ -21,41 +21,41 @@ yarn add color-generator-fl
 ### Import the Package
 
 ```ts
-import { getColorForFirstLetter } from 'color-generator-fl';
+import { getColorForFirstCharacter } from 'color-generator-fl';
 ```
 
 ### Function Overview
 
-#### `getColorForFirstLetter(arg: string | number | (string | number)[]): string | string[]`
+#### `getColorForFirstCharacter(arg: string | number | (string | number)[]): string | string[]`
 
-- The function returns a hex color based on the first letter of a string or number. If an array is provided, it returns an array of hex colors for each element.
+- The function returns a hex color based on the first character of a string or number. If an array is provided, it returns an array of hex colors for each element.
 
 ### Example
 
 #### Using with String
 
 ```ts
-import { getColorForFirstLetter } from 'color-generator-fl';
+import { getColorForFirstCharacter } from 'color-generator-fl';
 
-const color = getColorForFirstLetter('Alice'); // '#132DEE' (Deep blue)
+const color = getColorForFirstCharacter('Alice'); // '#132DEE' (Deep blue)
 console.log(color);
 ```
 
 #### Using with Number
 
 ```ts
-import { getColorForFirstLetter } from 'color-generator-fl';
+import { getColorForFirstCharacter } from 'color-generator-fl';
 
-const color = getColorForFirstLetter(666); // '#FFD700' (Tomato)
+const color = getColorForFirstCharacter(666); // '#FFD700' (Gold)
 console.log(color);
 ```
 
 #### Using with Array
 
 ```ts
-import { getColorForFirstLetter } from 'color-generator-fl';
+import { getColorForFirstCharacter } from 'color-generator-fl';
 
-const colors = getColorForFirstLetter(['Alice', 123, 'Bob']); 
+const colors = getColorForFirstCharacter(['Alice', 123, 'Bob']); 
 // ['#132DEE', '#FFD700', '#1E90FF'] (Deep blue, Gold, Dodger blue)
 console.log(colors);
 ```
@@ -65,9 +65,9 @@ console.log(colors);
 - The function handles invalid characters (not alphabet or numbers or array of numbers/strings):
 
 ```ts
-import { getColorForFirstLetter } from 'color-generator-fl';
+import { getColorForFirstCharacter } from 'color-generator-fl';
 
-const color = getColorForFirstLetter('!@#'); // '🛑 Invalid Character!'
+const color = getColorForFirstCharacter('!@#'); // '🛑 Invalid Character!'
 console.log(color);
 ```
 
@@ -76,9 +76,9 @@ console.log(color);
 - The function handles invalid input (objects or other types) and empty input:
 
 ```ts
-import { getColorForFirstLetter } from 'color-generator-fl';
+import { getColorForFirstCharacter } from 'color-generator-fl';
 
-const color = getColorForFirstLetter({name: 'John Doe'}); // '🛑 Invalid Input!'
+const color = getColorForFirstCharacter({name: 'John Doe'}); // '🛑 Invalid Input!'
 console.log(color);
 ```
 
@@ -91,7 +91,7 @@ This package uses two distinct color palettes:
 
 ## API
 
-### `getColorForFirstLetter`
+### `getColorForFirstCharacter`
 
 #### Parameters
 
@@ -113,10 +113,10 @@ This package uses two distinct color palettes:
 Example:
 
 ```ts
-import { getColorForFirstLetter } from 'color-generator-fl';
+import { getColorForFirstCharacter } from 'color-generator-fl';
 
 const tags = ['Important', 'Urgent', 'Pending'];
-const tagColors = getColorForFirstLetter(tags);
+const tagColors = getColorForFirstCharacter(tags);
 
 console.log(tagColors);
 // ['#7FFF00', '#00FF00', '#87CEEB'] (Colors for 'Important', 'Urgent', 'Pending')
@@ -131,11 +131,11 @@ This approach ensures that tags can have consistent colors across the app, makin
 Example:
 
 ```ts
-import { getColorForFirstLetter } from 'color-generator-fl';
+import { getColorForFirstCharacter } from 'color-generator-fl';
 
 const userName = 'Sarah Connor';
 
-const avatarColor = getColorForFirstLetter(userName);
+const avatarColor = getColorForFirstCharacter(userName);
 console.log(avatarColor); // A consistent color for 'S'
 ```
 
@@ -143,15 +143,15 @@ This use case can be helpful in list-based UIs or grids where users are represen
 
 ### 3. Categorizing Projects or Items
 
-- When managing a large number of projects or items (such as in a task management tool or project dashboard), you can use the first letter of each project or item to assign a unique color, improving the visual distinction between different elements.
+- When managing a large number of projects or items (such as in a task management tool or project dashboard), you can use the first letter/character of each project or item to assign a unique color, improving the visual distinction between different elements.
 
 Example:
 
 ```ts
-import { getColorForFirstLetter } from 'color-generator-fl';
+import { getColorForFirstCharacter } from 'color-generator-fl';
 
 const projects = ['Alpha', 'Beta', 'Gamma'];
-const projectColors = getColorForFirstLetter(projects);
+const projectColors = getColorForFirstCharacter(projects);
 
 console.log(projectColors);
 // Colors for 'Alpha', 'Beta', 'Gamma' which can be applied to project cards or labels
@@ -164,10 +164,10 @@ console.log(projectColors);
 Example:
 
 ```ts
-import { getColorForFirstLetter } from 'color-generator-fl';
+import { getColorForFirstCharacter } from 'color-generator-fl';
 
 const senderName = 'David';
-const bubbleColor = getColorForFirstLetter(senderName);
+const bubbleColor = getColorForFirstCharacter(senderName);
 
 console.log(bubbleColor); // Generates a consistent color for David's message bubble
 ```
@@ -179,10 +179,10 @@ console.log(bubbleColor); // Generates a consistent color for David's message bu
 Example:
 
 ```ts
-import { getColorForFirstLetter } from 'color-generator-fl';
+import { getColorForFirstCharacter } from 'color-generator-fl';
 
 const notificationTypes = ['System Alert', 'Message', 'Reminder'];
-const notificationColors = getColorForFirstLetter(notificationTypes);
+const notificationColors = getColorForFirstCharacter(notificationTypes);
 
 console.log(notificationColors);
 // Generates different colors for each type of notification
@@ -195,10 +195,10 @@ console.log(notificationColors);
 Example:
 
 ```ts
-import { getColorForFirstLetter } from 'color-generator-fl';
+import { getColorForFirstCharacter } from 'color-generator-fl';
 
 const categories = ['Electronics', 'Clothing', 'Books'];
-const categoryColors = getColorForFirstLetter(categories);
+const categoryColors = getColorForFirstCharacter(categories);
 
 console.log(categoryColors);
 // Colors for 'Electronics', 'Clothing', and 'Books' categories
@@ -211,10 +211,10 @@ console.log(categoryColors);
 Example:
 
 ```ts
-import { getColorForFirstLetter } from 'color-generator-fl';
+import { getColorForFirstCharacter } from 'color-generator-fl';
 
 const labels = ['Sales', 'Revenue', 'Profit'];
-const chartColors = getColorForFirstLetter(labels);
+const chartColors = getColorForFirstCharacter(labels);
 
 console.log(chartColors);
 // Generates distinct colors for 'Sales', 'Revenue', and 'Profit' series in the chart
@@ -224,15 +224,15 @@ This ensures consistency and a visually pleasing look for charts that need disti
 
 ### 8. File Management Systems
 
-- In file management or file-sharing systems, you can assign colors to folders or files based on the first letter of the folder or file name.
+- In file management or file-sharing systems, you can assign colors to folders or files based on the first letter/character of the folder or file name.
 
 Example:
 
 ```ts
-import { getColorForFirstLetter } from 'color-generator-fl';
+import { getColorForFirstCharacter } from 'color-generator-fl';
 
 const folders = ['Annual Report', 'Budget', 'Client List'];
-const folderColors = getColorForFirstLetter(folders);
+const folderColors = getColorForFirstCharacter(folders);
 
 console.log(folderColors);
 // Generates distinct colors for each folder, making it easier to visually distinguish them
