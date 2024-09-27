@@ -48,7 +48,6 @@ type Colors = string[];
  * ---------------------------------
  * @example
  * // Handling Invalid Input
- * // - The function handles invalid characters (not alphabet or numbers or array of numbers/strings)
  * import { getColorForFirstCharacter } from 'color-generator-fl';
  *
  * const color = getColorForFirstCharacter('!@#'); // '🛑 Invalid Character!'
@@ -56,7 +55,6 @@ type Colors = string[];
  * ---------------------------------
  * @example
  * // Handling Invalid Input
- * // - The function handles invalid input (objects or other types) and empty input:
  * import { getColorForFirstCharacter } from 'color-generator-fl';
  *
  * const color = getColorForFirstCharacter({name: 'John Doe'}); // '🛑 Invalid Input!'
