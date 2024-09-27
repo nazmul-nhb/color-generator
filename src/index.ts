@@ -5,7 +5,7 @@ type Name = string | number | (string | number)[];
 /**
  *
  * @param {string | number | (string | number)[]} arg - Any string, number, array of strings or numbers
- * @returns {string} - A hex color based on the first letter
+ * @returns {string | string[]} - A hex color based on the first letter
  */
 export const getColorForFirstLetter = (arg: Name): string | string[] => {
 	let initial: string;
@@ -42,14 +42,17 @@ export const getColorForFirstLetter = (arg: Name): string | string[] => {
 		console.log({ initial, upperInitial, index });
 
 		return alphabetColorPalette[index];
-	} else {
-		try {
-			throw new Error('🛑 Invalid Input!');
-		} catch (error) {
-			if (error instanceof Error) {
-				return error.message;
-			}
-			return '🛑 Invalid Input!';
+	} else if (typeof arg === 'number' && !isNaN(arg)) {
+		initial = arg.toString()[0];
+		console.log({ initial });
+		// check if the string contains any number
+		if ('0123456789'.includes(initial)) {
+			console.log({ initial });
+			return numberColorPalette[parseInt(initial)];
 		}
+
+		return '🛑 Invalid Input!';
 	}
+
+	return '🛑 Invalid Input!';
 };
