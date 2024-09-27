@@ -5,7 +5,7 @@ type Name = string | number | (string | number)[];
 /**
  *
  * @param {string | number | (string | number)[]} arg - Any string, number, array of strings or numbers
- * @returns {string | string[]} - A hex color based on the first letter
+ * @returns {string | string[]} color | color[] - Returns a hex color or an array of hex colors based on the first letter(s)
  */
 export const getColorForFirstLetter = (arg: Name): string | string[] => {
 	let initial: string;
@@ -29,14 +29,7 @@ export const getColorForFirstLetter = (arg: Name): string | string[] => {
 
 		// Check if index is valid
 		if (index < 0 || index >= alphabetColorPalette.length) {
-			try {
-				throw new Error('🛑 Invalid Character!');
-			} catch (error) {
-				if (error instanceof Error) {
-					return error.message;
-				}
-				return '🛑 Invalid Character!';
-			}
+			return '🛑 Invalid Character!';
 		}
 
 		console.log({ initial, upperInitial, index });
@@ -52,6 +45,11 @@ export const getColorForFirstLetter = (arg: Name): string | string[] => {
 		}
 
 		return '🛑 Invalid Input!';
+	} else if (Array.isArray(arg)) {
+		return arg.flatMap((el) => {
+			const color = getColorForFirstLetter(el);
+			return Array.isArray(color) ? color : [color];
+		});
 	}
 
 	return '🛑 Invalid Input!';

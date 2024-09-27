@@ -1,7 +1,7 @@
 import { getColorForFirstLetter } from './dist';
 
 const color1 = getColorForFirstLetter('Mamun');
-const color2 = getColorForFirstLetter(756);
+const color2 = getColorForFirstLetter([1, 2, 'abba', 'kallyan']);
 
 console.log({ color1, color2 });
 
