@@ -1,6 +1,6 @@
 {
 	"name": "color-generator-fl",
-	"version": "0.9.3",
+	"version": "0.9.4",
 	"description": "Generate Hex Color Based on First Letter of Any String",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",

@@ -1,8 +1,9 @@
 import { getColorForFirstLetter } from './dist';
 
-const color = getColorForFirstLetter("0");
+const color1 = getColorForFirstLetter('Mamun');
+const color2 = getColorForFirstLetter('0amun');
 
-console.log(color);
+console.log({ color1, color2 });
 
 // const letters = 'abcdefghijklmnopqrstuvwxyz';
 
