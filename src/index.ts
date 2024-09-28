@@ -13,29 +13,40 @@ type Argument = string | number | (string | number)[];
  * - Invalid characters and inputs are handled with a warning.
  *
  * @param {string | number | (string | number)[]} arg - A string, number, or an array of strings/numbers.
+ * @param {Opacity} [opacity=100] - A value from 0 to 100 representing the opacity percentage.
  * @returns {string | string[]} A hex color for a string/number, or an array of hex colors for each element of the provided array.
  *
  * @example
  * // Using with String
  * import { getColorForFirstCharacter } from 'color-generator-fl';
- *
- * const color = getColorForFirstCharacter('Alice'); // '#132DEE' (Deep blue)
+ * 
+ * const color = getColorForFirstCharacter('Alice'); // '#132DEEFF' (Deep blue)
  * console.log(color);
+ * 
+ * const colorWithOpacity = getColorForFirstCharacter('Alice', 50); // '#132DEE80' (Deep blue with 50% opacity)
+ * console.log(colorWithOpacity);
  * ---------------------------------
  * @example
  * // Using with Number
  * import { getColorForFirstCharacter } from 'color-generator-fl';
  *
- * const color = getColorForFirstCharacter(666); // '#FFD700' (Gold)
+ * const color = getColorForFirstCharacter(666); // '#FF6347FF' (Tomato)
  * console.log(color);
+ *
+ * const colorWithOpacity = getColorForFirstCharacter(666, 75); // '#FF6347BF' (Tomato with 75% opacity)
+ * console.log(colorWithOpacity);
  * ---------------------------------
  * @example
  * // Using with Array
  * import { getColorForFirstCharacter } from 'color-generator-fl';
  *
  * const colors = getColorForFirstCharacter(['Alice', 123, 'Bob']);
- * // ['#132DEE', '#FFD700', '#1E90FF'] (Deep blue, Gold, Dodger blue)
+ * // ['#132DEEFF', '#FFD700FF', '#1E90FFFF'] (Deep blue, Gold, Dodger blue)
  * console.log(colors);
+ *
+ * const colorsWithOpacity = getColorForFirstCharacter(['Alice', 123, 'Bob'], 25);
+ * // ['#132DEE40', '#FFD70040', '#1E90FF40'] (Deep blue, Gold, Dodger blue with 25% opacity)
+ * console.log(colorsWithOpacity);
  * ---------------------------------
  * @example
  * // Handling Invalid Input
@@ -51,6 +62,7 @@ type Argument = string | number | (string | number)[];
  * const color = getColorForFirstCharacter({name: 'John Doe'}); // '🛑 Invalid Input!'
  * console.log(color);
  */
+
 export const getColorForFirstCharacter = (
 	arg: Argument,
 	opacity: Opacity = 100,

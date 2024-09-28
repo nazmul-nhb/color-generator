@@ -2,7 +2,7 @@ import { getColorForFirstCharacter } from './dist';
 
 const color1 = getColorForFirstCharacter('Mamun', 40);
 const color2 = getColorForFirstCharacter('Mamun');
-const color3 = getColorForFirstCharacter(color1);
+const color3 = getColorForFirstCharacter(['Alice', 123, 'Bob'], 25);
 
 console.log({ color1, color2, color3 });
 

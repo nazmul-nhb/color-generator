@@ -1,6 +1,6 @@
 # Color Generator
 
-**Color Generator** is a simple utility to generate hex color codes based on the first character of string or number. It provides easy-to-use function that takes string, number, or array of numbers of strings/numbers as input and returns the corresponding hex color(s).
+**Color Generator** is a simple utility to generate hex color codes based on the first character of a string or number. It provides an easy-to-use function that accepts a string, number, or an array of strings/numbers as input and returns the corresponding hex color(s). Additionally, the package allows you to specify an opacity level (0-100%) for the generated colors, providing flexibility for styling with transparent colors.
 
 ## Installation
 
@@ -21,7 +21,7 @@ yarn add color-generator-fl
 ### Import the Package
 
 ```ts
-import { getColorForFirstCharacter } from 'color-generator-fl';
+    import { getColorForFirstCharacter } from 'color-generator-fl';
 ```
 
 ### Function Overview
@@ -35,29 +35,39 @@ import { getColorForFirstCharacter } from 'color-generator-fl';
 #### Using with String
 
 ```ts
-import { getColorForFirstCharacter } from 'color-generator-fl';
+    import { getColorForFirstCharacter } from 'color-generator-fl';
 
-const color = getColorForFirstCharacter('Alice'); // '#132DEE' (Deep blue)
-console.log(color);
+    const color = getColorForFirstCharacter('Alice'); // '#132DEEFF' (Deep blue)
+    console.log(color);
+
+    const colorWithOpacity = getColorForFirstCharacter('Alice', 50); // '#132DEE80' (Deep blue with 50% opacity)
+    console.log(colorWithOpacity);
 ```
 
 #### Using with Number
 
 ```ts
-import { getColorForFirstCharacter } from 'color-generator-fl';
+    import { getColorForFirstCharacter } from 'color-generator-fl';
 
-const color = getColorForFirstCharacter(666); // '#FFD700' (Gold)
-console.log(color);
+    const color = getColorForFirstCharacter(666); // '#FF6347FF' (Tomato)
+    console.log(color);
+
+    const colorWithOpacity = getColorForFirstCharacter(666, 75); // '#FF6347BF' (Tomato with 75% opacity)
+    console.log(colorWithOpacity);
 ```
 
 #### Using with Array
 
 ```ts
-import { getColorForFirstCharacter } from 'color-generator-fl';
+    import { getColorForFirstCharacter } from 'color-generator-fl';
 
-const colors = getColorForFirstCharacter(['Alice', 123, 'Bob']); 
-// ['#132DEE', '#FFD700', '#1E90FF'] (Deep blue, Gold, Dodger blue)
-console.log(colors);
+    const colors = getColorForFirstCharacter(['Alice', 123, 'Bob']);
+    // ['#132DEEFF', '#FFD700FF', '#1E90FFFF'] (Deep blue, Gold, Dodger blue)
+    console.log(colors);
+
+    const colorsWithOpacity = getColorForFirstCharacter(['Alice', 123, 'Bob'], 25);
+    // ['#132DEE40', '#FFD70040', '#1E90FF40'] (Deep blue, Gold, Dodger blue with 25% opacity)
+    console.log(colorsWithOpacity);
 ```
 
 ### Handling Invalid Character
@@ -65,10 +75,10 @@ console.log(colors);
 - The function handles invalid characters (not alphabet or numbers or array of numbers/strings):
 
 ```ts
-import { getColorForFirstCharacter } from 'color-generator-fl';
+    import { getColorForFirstCharacter } from 'color-generator-fl';
 
-const color = getColorForFirstCharacter('!@#'); // '🛑 Invalid Character!'
-console.log(color);
+    const color = getColorForFirstCharacter('!@#'); // '🛑 Invalid Character!'
+    console.log(color);
 ```
 
 ### Handling Invalid Input
@@ -76,10 +86,10 @@ console.log(color);
 - The function handles invalid input (objects or other types) and empty input:
 
 ```ts
-import { getColorForFirstCharacter } from 'color-generator-fl';
+    import { getColorForFirstCharacter } from 'color-generator-fl';
 
-const color = getColorForFirstCharacter({name: 'John Doe'}); // '🛑 Invalid Input!'
-console.log(color);
+    const color = getColorForFirstCharacter({name: 'John Doe'}); // '🛑 Invalid Input!'
+    console.log(color);
 ```
 
 ### Color Palettes
@@ -113,13 +123,13 @@ This package uses two distinct color palettes:
 Example:
 
 ```ts
-import { getColorForFirstCharacter } from 'color-generator-fl';
+    import { getColorForFirstCharacter } from 'color-generator-fl';
 
-const tags = ['Important', 'Urgent', 'Pending'];
-const tagColors = getColorForFirstCharacter(tags);
+    const tags = ['Important', 'Urgent', 'Pending'];
+    const tagColors = getColorForFirstCharacter(tags);
 
-console.log(tagColors);
-// ['#7FFF00', '#00FF00', '#87CEEB'] (Colors for 'Important', 'Urgent', 'Pending')
+    console.log(tagColors);
+    // ['#7FFF00FF', '#00FF00FF', '#87CEEBFF'] (Colors for 'Important', 'Urgent', 'Pending')
 ```
 
 This approach ensures that tags can have consistent colors across the app, making the UI more user-friendly and intuitive.
@@ -131,12 +141,12 @@ This approach ensures that tags can have consistent colors across the app, makin
 Example:
 
 ```ts
-import { getColorForFirstCharacter } from 'color-generator-fl';
+    import { getColorForFirstCharacter } from 'color-generator-fl';
 
-const userName = 'Sarah Connor';
+    const userName = 'Sarah Connor';
 
-const avatarColor = getColorForFirstCharacter(userName);
-console.log(avatarColor); // A consistent color for 'S'
+    const avatarColor = getColorForFirstCharacter(userName);
+    console.log(avatarColor); // A consistent color for 'S'
 ```
 
 This use case can be helpful in list-based UIs or grids where users are represented with initials instead of profile pictures.
@@ -148,12 +158,12 @@ This use case can be helpful in list-based UIs or grids where users are represen
 Example:
 
 ```ts
-import { getColorForFirstCharacter } from 'color-generator-fl';
+    import { getColorForFirstCharacter } from 'color-generator-fl';
 
-const projects = ['Alpha', 'Beta', 'Gamma'];
-const projectColors = getColorForFirstCharacter(projects);
+    const projects = ['Alpha', 'Beta', 'Gamma'];
+    const projectColors = getColorForFirstCharacter(projects);
 
-console.log(projectColors);
+    console.log(projectColors);
 // Colors for 'Alpha', 'Beta', 'Gamma' which can be applied to project cards or labels
 ```
 
@@ -164,12 +174,12 @@ console.log(projectColors);
 Example:
 
 ```ts
-import { getColorForFirstCharacter } from 'color-generator-fl';
+    import { getColorForFirstCharacter } from 'color-generator-fl';
 
-const senderName = 'David';
-const bubbleColor = getColorForFirstCharacter(senderName);
+    const senderName = 'David';
+    const bubbleColor = getColorForFirstCharacter(senderName);
 
-console.log(bubbleColor); // Generates a consistent color for David's message bubble
+    console.log(bubbleColor); // Generates a consistent color for David's message bubble
 ```
 
 ### 5. Color-Coding Notifications
@@ -179,12 +189,12 @@ console.log(bubbleColor); // Generates a consistent color for David's message bu
 Example:
 
 ```ts
-import { getColorForFirstCharacter } from 'color-generator-fl';
+    import { getColorForFirstCharacter } from 'color-generator-fl';
 
-const notificationTypes = ['System Alert', 'Message', 'Reminder'];
-const notificationColors = getColorForFirstCharacter(notificationTypes);
+    const notificationTypes = ['System Alert', 'Message', 'Reminder'];
+    const notificationColors = getColorForFirstCharacter(notificationTypes);
 
-console.log(notificationColors);
+    console.log(notificationColors);
 // Generates different colors for each type of notification
 ```
 
@@ -195,12 +205,12 @@ console.log(notificationColors);
 Example:
 
 ```ts
-import { getColorForFirstCharacter } from 'color-generator-fl';
+    import { getColorForFirstCharacter } from 'color-generator-fl';
 
-const categories = ['Electronics', 'Clothing', 'Books'];
-const categoryColors = getColorForFirstCharacter(categories);
+    const categories = ['Electronics', 'Clothing', 'Books'];
+    const categoryColors = getColorForFirstCharacter(categories);
 
-console.log(categoryColors);
+    console.log(categoryColors);
 // Colors for 'Electronics', 'Clothing', and 'Books' categories
 ```
 
@@ -211,12 +221,12 @@ console.log(categoryColors);
 Example:
 
 ```ts
-import { getColorForFirstCharacter } from 'color-generator-fl';
+    import { getColorForFirstCharacter } from 'color-generator-fl';
 
-const labels = ['Sales', 'Revenue', 'Profit'];
-const chartColors = getColorForFirstCharacter(labels);
+    const labels = ['Sales', 'Revenue', 'Profit'];
+    const chartColors = getColorForFirstCharacter(labels);
 
-console.log(chartColors);
+    console.log(chartColors);
 // Generates distinct colors for 'Sales', 'Revenue', and 'Profit' series in the chart
 ```
 
@@ -229,12 +239,12 @@ This ensures consistency and a visually pleasing look for charts that need disti
 Example:
 
 ```ts
-import { getColorForFirstCharacter } from 'color-generator-fl';
+    import { getColorForFirstCharacter } from 'color-generator-fl';
 
-const folders = ['Annual Report', 'Budget', 'Client List'];
-const folderColors = getColorForFirstCharacter(folders);
+    const folders = ['Annual Report', 'Budget', 'Client List'];
+    const folderColors = getColorForFirstCharacter(folders);
 
-console.log(folderColors);
+    console.log(folderColors);
 // Generates distinct colors for each folder, making it easier to visually distinguish them
 ```
 
@@ -244,8 +254,8 @@ By leveraging the **Color Generator** package in these use cases, you can mainta
 
 ## License
 
-This project is licensed under the MIT License.
+- This project is licensed under the MIT License.
 
 ## Author
 
-Created by [Nazmul Hassan](https://github.com/nazmul-nhb).
+- Created by [Nazmul Hassan](https://nazmul-nhb.vercel.app).
