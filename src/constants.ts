@@ -1,5 +1,4 @@
 // colors based on the ASCII value of the letter
-
 export const alphabetColorPalette = [
 	'#132DEE', // A - Deep blue
 	'#1E90FF', // B - Dodger blue
@@ -29,6 +28,7 @@ export const alphabetColorPalette = [
 	'#556B2F', // Z - Dark olive green
 ];
 
+// colors based on the index of numbers
 export const numberColorPalette = [
 	'#FF4500', // 0 - Orange Red
 	'#FFD700', // 1 - Gold

@@ -1,4 +1,5 @@
 import { alphabetColorPalette, numberColorPalette } from './constants';
+import { convertOpacityToHex, Opacity } from './handleOpacity';
 
 /**
  * - A string, number, or an array of strings/numbers.
@@ -50,8 +51,12 @@ type Argument = string | number | (string | number)[];
  * const color = getColorForFirstCharacter({name: 'John Doe'}); // '🛑 Invalid Input!'
  * console.log(color);
  */
-export const getColorForFirstCharacter = (arg: Argument): string | string[] => {
+export const getColorForFirstCharacter = (
+	arg: Argument,
+	opacity: Opacity = 100,
+): string | string[] => {
 	let initial: string;
+	const hexOpacity = convertOpacityToHex(opacity);
 
 	// Handle string input
 	if (typeof arg === 'string') {
@@ -59,15 +64,17 @@ export const getColorForFirstCharacter = (arg: Argument): string | string[] => {
 		if (!arg) return '🛑 Invalid Input!';
 		initial = arg[0];
 
+		// Handle number as string
 		if ('0123456789'.includes(initial)) {
-			return numberColorPalette[parseInt(initial)];
+			return numberColorPalette[parseInt(initial)] + hexOpacity;
 		}
 
 		const upperInitial = initial.toUpperCase();
 		const index = upperInitial.charCodeAt(0) - 'A'.charCodeAt(0);
 
+		// Validate alphabet
 		if (index >= 0 && index < alphabetColorPalette.length) {
-			return alphabetColorPalette[index];
+			return alphabetColorPalette[index] + hexOpacity;
 		}
 
 		return '🛑 Invalid Character!';
@@ -75,14 +82,14 @@ export const getColorForFirstCharacter = (arg: Argument): string | string[] => {
 		// Handle number input
 		initial = arg.toString()[0];
 		if ('0123456789'.includes(initial)) {
-			return numberColorPalette[parseInt(initial)];
+			return numberColorPalette[parseInt(initial)] + hexOpacity;
 		}
 
 		return '🛑 Invalid Input!';
 	} else if (Array.isArray(arg)) {
 		// Handle array of strings/numbers
 		return arg.flatMap((el) => {
-			const color = getColorForFirstCharacter(el);
+			const color = getColorForFirstCharacter(el, opacity);
 			return Array.isArray(color) ? color : [color]; // Flatten if nested arrays
 		});
 	}
