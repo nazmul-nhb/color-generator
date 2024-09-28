@@ -20,20 +20,24 @@ type Argument = string | number | (string | number)[];
  * // Using with String
  * import { getColorForFirstCharacter } from 'color-generator-fl';
  * 
- * const color = getColorForFirstCharacter('Alice'); // '#132DEEFF' (Deep blue)
+ * const color = getColorForFirstCharacter('Alice');
+ * // '#132DEEFF' (Deep blue)
  * console.log(color);
  * 
- * const colorWithOpacity = getColorForFirstCharacter('Alice', 50); // '#132DEE80' (Deep blue with 50% opacity)
+ * const colorWithOpacity = getColorForFirstCharacter('Alice', 50);
+ * // '#132DEE80' (Deep blue with 50% opacity)
  * console.log(colorWithOpacity);
  * ---------------------------------
  * @example
  * // Using with Number
  * import { getColorForFirstCharacter } from 'color-generator-fl';
  *
- * const color = getColorForFirstCharacter(666); // '#FF6347FF' (Tomato)
+ * const color = getColorForFirstCharacter(666);
+ * // '#FF6347FF' (Tomato)
  * console.log(color);
  *
- * const colorWithOpacity = getColorForFirstCharacter(666, 75); // '#FF6347BF' (Tomato with 75% opacity)
+ * const colorWithOpacity = getColorForFirstCharacter(666, 75);
+ * // '#FF6347BF' (Tomato with 75% opacity)
  * console.log(colorWithOpacity);
  * ---------------------------------
  * @example
@@ -52,14 +56,16 @@ type Argument = string | number | (string | number)[];
  * // Handling Invalid Input
  * import { getColorForFirstCharacter } from 'color-generator-fl';
  *
- * const color = getColorForFirstCharacter('!@#'); // '🛑 Invalid Character!'
+ * const color = getColorForFirstCharacter('!@#');
+ * // '🛑 Invalid Character!'
  * console.log(color);
  * ---------------------------------
  * @example
  * // Handling Invalid Input
  * import { getColorForFirstCharacter } from 'color-generator-fl';
  *
- * const color = getColorForFirstCharacter({name: 'John Doe'}); // '🛑 Invalid Input!'
+ * const color = getColorForFirstCharacter({name: 'John Doe'});
+ * // '🛑 Invalid Input!'
  * console.log(color);
  */
 
