@@ -1,6 +1,6 @@
 {
 	"name": "color-generator-fl",
-	"version": "1.2.2",
+	"version": "1.2.3",
 	"description": "Generate Hex Color Based on First Letter of Any String",
 	"main": "dist/index.js",
 	"types": "dist/index.d.ts",
@@ -37,6 +37,9 @@
 	"files": [
 		"dist"
 	],
-	"author": "Nazmul Hassan",
+	"author": {
+		"name": "Nazmul Hassan",
+		"email": "nazmulnhb@gmail.com"
+	},
 	"license": "MIT"
 }
