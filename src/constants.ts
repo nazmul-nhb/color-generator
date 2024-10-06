@@ -1,43 +1,43 @@
 // colors based on the ASCII value of the letter
 export const alphabetColorPalette = [
-	'#132DEE', // A - Deep blue
-	'#1E90FF', // B - Dodger blue
-	'#32CD32', // C - Lime green
-	'#00CED1', // D - Dark turquoise
-	'#9370DB', // E - Medium purple
-	'#8A2BE2', // F - Blue violet
-	'#40E0D0', // G - Turquoise
-	'#00BFFF', // H - Deep sky blue
-	'#7FFF00', // I - Chartreuse
-	'#00FF7F', // J - Spring green
-	'#FF00FF', // K - Magenta
-	'#00FFFF', // L - Cyan
-	'#6495ED', // M - Cornflower blue
-	'#4682B4', // N - Steel blue
-	'#4169E1', // O - Royal blue
-	'#87CEEB', // P - Sky blue
-	'#00FA9A', // Q - Medium spring green
-	'#2E8B57', // R - Sea green
-	'#3CB371', // S - Medium sea green
-	'#20B2AA', // T - Light sea green
-	'#00FF00', // U - Lime
-	'#FF1493', // V - Deep pink
-	'#008080', // W - Teal
-	'#8FBC8F', // X - Dark sea green
-	'#6B8E23', // Y - Olive drab
-	'#556B2F', // Z - Dark olive green
+	'#00094C',
+	'#00376E',
+	'#005600',
+	'#024647',
+	'#423067',
+	'#55188E',
+	'#00453E',
+	'#00516C',
+	'#263E0D',
+	'#0F6F3F',
+	'#730073',
+	'#053636',
+	'#253654',
+	'#4682B4',
+	'#3253B6',
+	'#43616C',
+	'#036C44',
+	'#30784F',
+	'#601C1C',
+	'#690000',
+	'#005B00',
+	'#BF0E6C',
+	'#008080',
+	'#475F47',
+	'#546F1C',
+	'#824809',
 ];
 
 // colors based on the index of numbers
 export const numberColorPalette = [
-	'#FF4500', // 0 - Orange Red
-	'#FFD700', // 1 - Gold
-	'#8B4513', // 2 - Saddle Brown
-	'#DC143C', // 3 - Crimson
-	'#00FF00', // 4 - Bright Lime
-	'#DA70D6', // 5 - Orchid
-	'#FF6347', // 6 - Tomato
-	'#9932CC', // 7 - Dark Orchid
-	'#FF8C00', // 8 - Dark Orange
-	'#FF69B4', // 9 - Hot Pink
+	'#893213',
+	'#A44C15',
+	'#8B4513',
+	'#8A1D33',
+	'#3B543B',
+	'#342656',
+	'#A43522',
+	'#04605F',
+	'#B5680A',
+	'#6437B3',
 ];

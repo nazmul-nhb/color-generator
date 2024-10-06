@@ -10,7 +10,7 @@ type Argument = string | number | (string | number)[];
  * Returns a hex color or an array of hex colors based on the first character of a string, number, or an array of strings/numbers.
  * - For numbers, it uses 10 predefined colors (0-9).
  * - For letters, it uses 26 predefined colors (A-Z).
- * - Invalid characters and inputs are handled with a warning.
+ * - Invalid characters and inputs are handled with a fallback color.
  *
  * @param {string | number | (string | number)[]} arg - A string, number, or an array of strings/numbers.
  * @param {Opacity} [opacity=100] - A value from 0 to 100 representing the opacity percentage.
@@ -21,11 +21,11 @@ type Argument = string | number | (string | number)[];
  * import { getColorForFirstCharacter } from 'color-generator-fl';
  * 
  * const color = getColorForFirstCharacter('Alice');
- * // '#132DEEFF' (Deep blue)
+ * // '#00094CFF'
  * console.log(color);
  * 
  * const colorWithOpacity = getColorForFirstCharacter('Alice', 50);
- * // '#132DEE80' (Deep blue with 50% opacity)
+ * // '#00094C80' (with 50% opacity)
  * console.log(colorWithOpacity);
  * ---------------------------------
  * @example
@@ -33,11 +33,11 @@ type Argument = string | number | (string | number)[];
  * import { getColorForFirstCharacter } from 'color-generator-fl';
  *
  * const color = getColorForFirstCharacter(666);
- * // '#FF6347FF' (Tomato)
+ * // '#A43522FF'
  * console.log(color);
  *
  * const colorWithOpacity = getColorForFirstCharacter(666, 75);
- * // '#FF6347BF' (Tomato with 75% opacity)
+ * // '#A43522BF' (with 75% opacity)
  * console.log(colorWithOpacity);
  * ---------------------------------
  * @example
@@ -45,27 +45,27 @@ type Argument = string | number | (string | number)[];
  * import { getColorForFirstCharacter } from 'color-generator-fl';
  *
  * const colors = getColorForFirstCharacter(['Alice', 123, 'Bob']);
- * // ['#132DEEFF', '#FFD700FF', '#1E90FFFF'] (Deep blue, Gold, Dodger blue)
+ * // ['#00094CFF', '#A44C15FF', '#00376EFF']
  * console.log(colors);
  *
  * const colorsWithOpacity = getColorForFirstCharacter(['Alice', 123, 'Bob'], 25);
- * // ['#132DEE40', '#FFD70040', '#1E90FF40'] (Deep blue, Gold, Dodger blue with 25% opacity)
+ * // ['#00094C40', '#A44C1540', '#00376E40'] (with 25% opacity)
  * console.log(colorsWithOpacity);
  * ---------------------------------
  * @example
- * // Handling Invalid Input
+ * // Handling Invalid Input - Returns fallback color
  * import { getColorForFirstCharacter } from 'color-generator-fl';
  *
  * const color = getColorForFirstCharacter('!@#');
- * // '🛑 Invalid Character!'
+ * // '#010514FF'
  * console.log(color);
  * ---------------------------------
  * @example
- * // Handling Invalid Input
+ * // Handling Invalid Input - Returns fallback color
  * import { getColorForFirstCharacter } from 'color-generator-fl';
  *
  * const color = getColorForFirstCharacter({name: 'John Doe'});
- * // '🛑 Invalid Input!'
+ * // '#010514FF'
  * console.log(color);
  */
 
@@ -79,7 +79,7 @@ export const getColorForFirstCharacter = (
 	// Handle string input
 	if (typeof arg === 'string') {
 		// Handle empty string case
-		if (!arg) return '🛑 Invalid Input!';
+		if (!arg) return '#010514' + hexOpacity;
 		initial = arg[0];
 
 		// Handle number as string
@@ -95,7 +95,7 @@ export const getColorForFirstCharacter = (
 			return alphabetColorPalette[index] + hexOpacity;
 		}
 
-		return '🛑 Invalid Character!';
+		return '#010514' + hexOpacity;
 	} else if (typeof arg === 'number' && !isNaN(arg)) {
 		// Handle number input
 		initial = arg.toString()[0];
@@ -103,7 +103,7 @@ export const getColorForFirstCharacter = (
 			return numberColorPalette[parseInt(initial)] + hexOpacity;
 		}
 
-		return '🛑 Invalid Input!';
+		return '#010514' + hexOpacity;
 	} else if (Array.isArray(arg)) {
 		// Handle array of strings/numbers
 		return arg.flatMap((el) => {
@@ -112,5 +112,5 @@ export const getColorForFirstCharacter = (
 		});
 	}
 
-	return '🛑 Invalid Input!';
+	return '#010514' + hexOpacity;
 };

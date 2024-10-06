@@ -37,10 +37,10 @@ yarn add color-generator-fl
 ```ts
     import { getColorForFirstCharacter } from 'color-generator-fl';
 
-    const color = getColorForFirstCharacter('Alice'); // '#132DEEFF' (Deep blue)
+    const color = getColorForFirstCharacter('Alice'); // '#00094CFF'
     console.log(color);
 
-    const colorWithOpacity = getColorForFirstCharacter('Alice', 50); // '#132DEE80' (Deep blue with 50% opacity)
+    const colorWithOpacity = getColorForFirstCharacter('Alice', 50); // '#00094C80' (with 50% opacity)
     console.log(colorWithOpacity);
 ```
 
@@ -49,10 +49,10 @@ yarn add color-generator-fl
 ```ts
     import { getColorForFirstCharacter } from 'color-generator-fl';
 
-    const color = getColorForFirstCharacter(666); // '#FF6347FF' (Tomato)
+    const color = getColorForFirstCharacter(666); // '#A43522FF'
     console.log(color);
 
-    const colorWithOpacity = getColorForFirstCharacter(666, 75); // '#FF6347BF' (Tomato with 75% opacity)
+    const colorWithOpacity = getColorForFirstCharacter(666, 75); // '#A43522BF' (with 75% opacity)
     console.log(colorWithOpacity);
 ```
 
@@ -62,33 +62,33 @@ yarn add color-generator-fl
     import { getColorForFirstCharacter } from 'color-generator-fl';
 
     const colors = getColorForFirstCharacter(['Alice', 123, 'Bob']);
-    // ['#132DEEFF', '#FFD700FF', '#1E90FFFF'] (Deep blue, Gold, Dodger blue)
+    // ['#00094CFF', '#A44C15FF', '#00376EFF']
     console.log(colors);
 
     const colorsWithOpacity = getColorForFirstCharacter(['Alice', 123, 'Bob'], 25);
-    // ['#132DEE40', '#FFD70040', '#1E90FF40'] (Deep blue, Gold, Dodger blue with 25% opacity)
+    // ['#00094C40', '#A44C1540', '#00376E40']
     console.log(colorsWithOpacity);
 ```
 
-### Handling Invalid Character
+### Handling Invalid Character - Returns fallback color
 
 - The function handles invalid characters (not alphabet or numbers or array of numbers/strings):
 
 ```ts
     import { getColorForFirstCharacter } from 'color-generator-fl';
 
-    const color = getColorForFirstCharacter('!@#'); // '🛑 Invalid Character!'
+    const color = getColorForFirstCharacter('!@#'); // '#010514FF'
     console.log(color);
 ```
 
-### Handling Invalid Input
+### Handling Invalid Input - Returns fallback color
 
-- The function handles invalid input (objects or other types) and empty input:
+- The function handles invalid input (objects or other types) and empty input - Returns fallback color:
 
 ```ts
     import { getColorForFirstCharacter } from 'color-generator-fl';
 
-    const color = getColorForFirstCharacter({name: 'John Doe'}); // '🛑 Invalid Input!'
+    const color = getColorForFirstCharacter({name: 'John Doe'}); // '#010514FF'
     console.log(color);
 ```
 
@@ -129,7 +129,7 @@ Example:
     const tagColors = getColorForFirstCharacter(tags);
 
     console.log(tagColors);
-    // ['#7FFF00FF', '#00FF00FF', '#87CEEBFF'] (Colors for 'Important', 'Urgent', 'Pending')
+    // ['#263E0DFF', '#005B00FF', '#43616CFF'] (Colors for 'Important', 'Urgent', 'Pending')
 ```
 
 This approach ensures that tags can have consistent colors across the app, making the UI more user-friendly and intuitive.
